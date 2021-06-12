@@ -33,7 +33,7 @@ class _TodoHomeState extends State<TodoHome> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text('hello!!'),
+                  Text('hello world!!'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
