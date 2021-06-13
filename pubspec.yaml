@@ -37,6 +37,8 @@ dependencies:
   firebase_storage: ^8.1.1
   path_provider: ^2.0.2
   firebase_database: ^7.1.0
+  table_calendar: ^2.2.3
+  flutter_slidable: ^0.5.7
 
 
 dev_dependencies:

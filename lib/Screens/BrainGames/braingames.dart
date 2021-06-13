@@ -1,3 +1,4 @@
+import 'package:deal_care/Screens/BrainGames/Sliding_Puzzle/slidingPuzzle.dart';
 import 'package:deal_care/Screens/BrainGames/tictactoe/tictactoe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -55,12 +56,33 @@ class BrainMenu extends StatelessWidget {
 
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Card(
-                margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 80.0),
-                child: Image(
-                  image: AssetImage('assets/images/tictacto.png'),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SlidingPuzzle()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Card(
+
+                  margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 80.0),
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage('assets/images/SlidingPuzzle.png'),
+                      ),
+                      SizedBox(height:10.0),
+                      Text(
+                        'Sliding Puzzle',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

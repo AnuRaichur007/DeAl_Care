@@ -16,6 +16,26 @@ class MenuList extends StatefulWidget {
 }
 
 class _MenuListState extends State<MenuList> {
+
+  Widget menugrid(String image, Widget path){
+    return Card(
+      color: Colors.grey.shade800,
+      child: TextButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              new MaterialPageRoute(
+                  builder: (context) => path));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image(
+            image: AssetImage(image),
+          ),
+        ),
+      ),
+    );
+  }
   int _selectedIndex = 1;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -74,8 +94,9 @@ class _MenuListState extends State<MenuList> {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
+
             appBar: AppBar(
-              backgroundColor: Colors.teal.shade400,
+              backgroundColor: Colors.teal.shade700,
               title: Center(
                 child: Text(
                   'Menu',
@@ -92,22 +113,22 @@ class _MenuListState extends State<MenuList> {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
                   label: 'Home',
-                  backgroundColor: Colors.teal.shade500,
+                  backgroundColor: Colors.teal.shade700,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.list),
                   label: 'Menu',
-                  backgroundColor: Colors.teal.shade500,
+                  backgroundColor: Colors.teal.shade700,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.account_circle),
                   label: 'Profile',
-                  backgroundColor: Colors.teal.shade500,
+                  backgroundColor: Colors.teal.shade700,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.more_horiz),
                   label: 'More',
-                  backgroundColor: Colors.teal.shade500,
+                  backgroundColor: Colors.teal.shade700,
                 ),
               ],
               currentIndex: _selectedIndex,
@@ -121,98 +142,12 @@ class _MenuListState extends State<MenuList> {
               mainAxisSpacing: 40,
               crossAxisCount: 2,
               children: <Widget>[
-                Card(
-                  color: Colors.teal.shade600,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => TodoHome()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/To-Do.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Colors.teal.shade600,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => Gallery()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/Camera.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Colors.teal.shade600,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => BrainMenu()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/BrainGames.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Colors.teal.shade600,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => Quizzler()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/Quiz.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Colors.teal.shade600,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/Puzzle.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Colors.teal.shade600,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/Puzzle.png'),
-                      ),
-                    ),
-                  ),
-                ),
+                menugrid('assets/images/To-Do.png', TodoHome()),
+                menugrid('assets/images/Camera.png', Gallery()),
+                menugrid('assets/images/BrainGames.png',BrainMenu() ),
+                menugrid('assets/images/Quiz.png', Quizzler()),
+                menugrid('assets/images/Puzzle.png', TodoHome()),
+                menugrid('assets/images/To-Do.png', TodoHome()),
               ],
             )),
       ),
