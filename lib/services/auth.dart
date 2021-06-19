@@ -67,6 +67,15 @@ class AuthService {
     }
   }
 
+  Future feedbackForm(String name, String email, String content) async {
+     User user = _auth.currentUser;
+     if(_auth.currentUser.email== email){
+       await DatabaseService(uid: user.uid).updateFeedbackDetails(name,email,content);
+       // return _userFromFirebase(user);
+     }
+
+  }
+
   // sign out
   Future signOut() async {
     try {

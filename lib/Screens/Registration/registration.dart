@@ -1,5 +1,3 @@
-import 'package:deal_care/Screens/Home/home_page.dart';
-import 'package:deal_care/Screens/Home/menu.dart';
 import 'package:deal_care/Screens/Registration/login.dart';
 import 'package:deal_care/Screens/Shared/loading.dart';
 import 'package:deal_care/services/auth.dart';
@@ -250,8 +248,10 @@ class _RegistrationState extends State<Registration> {
                                       if (result == null) {
                                         setState(() {
                                           error = 'Please give valid email';
+                                          loading=false;
                                         });
                                       }
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=>Login()));
                                     }
                                   }),
                               SizedBox(height: 12.0),

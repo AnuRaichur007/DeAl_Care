@@ -177,6 +177,7 @@ class _LoginState extends State<Login> {
                                     loading = false;
                                       });
                                     }
+                                    //Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext)=>HomePage()));
                                   }
                                 }),
                             SizedBox(height: 12.0),

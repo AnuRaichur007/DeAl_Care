@@ -1,4 +1,3 @@
-// import 'package:deal_care/Screens/Registration/login.dart';
 import 'package:deal_care/Welcome/welcome.dart';
 import 'package:flutter/material.dart';
 
