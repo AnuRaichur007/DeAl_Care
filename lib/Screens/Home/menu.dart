@@ -21,7 +21,7 @@ class _MenuListState extends State<MenuList> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      color: Colors.grey.shade800,
+      color: Colors.grey.shade700,
       child: TextButton(
         onPressed: () {
           Navigator.push(
@@ -37,6 +37,7 @@ class _MenuListState extends State<MenuList> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal.shade700,
@@ -62,7 +63,7 @@ class _MenuListState extends State<MenuList> {
             menugrid('assets/images/BrainGames.png', BrainMenu()),
             menugrid('assets/images/Quiz.png', Home()),
             menugrid('assets/images/Puzzle.png', PuzzleMenu()),
-            Container(color: Colors.white30,)
+            Container(color: Colors.white24,)
           ],
         ),
       ),

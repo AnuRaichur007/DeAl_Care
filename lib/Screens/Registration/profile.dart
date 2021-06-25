@@ -19,6 +19,7 @@ class _ProfileState extends State<Profile> {
     return loading
         ? Loading()
         : MaterialApp(
+      debugShowCheckedModeBanner: false,
             home: Scaffold(
               backgroundColor: Colors.white,
               appBar: AppBar(
@@ -42,7 +43,7 @@ class _ProfileState extends State<Profile> {
                      Navigator.push(context, MaterialPageRoute(builder:(BuildContext)=> EditProfile()));
                     },
                     child: Card(
-                      color: Colors.grey.shade800,
+                      color: Colors.grey.shade700,
                       shadowColor: Colors.red.shade600,
                       elevation: 10.0,
                       shape:  RoundedRectangleBorder(
@@ -87,7 +88,7 @@ class _ProfileState extends State<Profile> {
                       shape:  RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      color: Colors.grey.shade800,
+                      color: Colors.grey.shade700,
                       margin:
                           EdgeInsets.symmetric(vertical: 1.0, horizontal: 0.0),
                       child: Padding(

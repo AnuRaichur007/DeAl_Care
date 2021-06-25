@@ -1,7 +1,8 @@
+import 'package:deal_care/Screens/BrainGames/MemoryMaster/memorymaster.dart';
+import 'package:deal_care/Screens/Puzzles/Sliding_Puzzle/slidingPuzzle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'MemoryMaster/memorymaster.dart';
 
 class PuzzleMenu extends StatelessWidget {
   const PuzzleMenu({Key key}) : super(key: key);
@@ -9,6 +10,7 @@ class PuzzleMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal.shade600,
@@ -20,7 +22,7 @@ class PuzzleMenu extends StatelessWidget {
         body: TextButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MemoryMaster()));
+                MaterialPageRoute(builder: (context) => SlidingPuzzle()));
           },
           child: Padding(
             padding: const EdgeInsets.all(30.0),
@@ -37,11 +39,11 @@ class PuzzleMenu extends StatelessWidget {
                   child: Column(
                     children: [
                       Image(
-                        image: AssetImage('assets/images/memorymaster.png'),
+                        image: AssetImage('assets/images/SlidingPuzzle.png'),
                       ),
                       SizedBox(height:20.0),
                       Text(
-                        'Memory Master',
+                        'Sliding Puzzle',
                         style: TextStyle(
                           color: Colors.grey.shade700,
                           fontWeight: FontWeight.bold,

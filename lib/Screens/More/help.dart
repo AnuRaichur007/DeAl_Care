@@ -8,7 +8,9 @@ class Help extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 10.0),
       child: Card(
-        color: Colors.grey.shade800,
+        elevation: 6.0,
+        shadowColor: Colors.red.shade400,
+        color: Colors.grey.shade700,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: ExpansionTile(

@@ -1,4 +1,5 @@
 import 'package:deal_care/Screens/Home/Location/location.dart';
+import 'package:deal_care/Screens/Home/Location/track_location.dart';
 import 'package:deal_care/Screens/Home/menu.dart';
 import 'package:deal_care/Screens/More/moremenu.dart';
 import 'package:deal_care/Screens/Registration/profile.dart';
@@ -14,7 +15,7 @@ class Nav extends StatefulWidget {
 class _NavState extends State<Nav> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = <Widget>[
-    LiveLocation(),
+    MyApp(),
     MenuList(),
     FeedbackForm(),
     Profile(),

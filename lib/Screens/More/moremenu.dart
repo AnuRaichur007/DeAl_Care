@@ -23,7 +23,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
         Navigator.push(context, MaterialPageRoute(builder: (context)=> path));
       },
       child: Card(
-        color: Colors.grey.shade800,
+        color: Colors.grey.shade700,
         shadowColor: Colors.red.shade600,
         shape: RoundedRectangleBorder(
 
@@ -56,6 +56,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(

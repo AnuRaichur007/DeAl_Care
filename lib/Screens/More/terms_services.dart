@@ -6,6 +6,30 @@ class TermsAndServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.teal.shade600,
+        title: Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: Text(
+            'Terms and Services',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(''),
+
+          ],
+        ),
+      ),
+    );
   }
 }

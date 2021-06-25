@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:deal_care/Screens/Puzzles/PuzzleMenu.dart';
 import 'package:flutter/material.dart';
 
 import 'TileModel.dart';
@@ -42,7 +43,7 @@ class _MemoryHomeState extends State<MemoryHome> {
     myPairs.shuffle();
 
     gridViewTiles = myPairs;
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 2), () {
 // Here you can write your code
       setState(() {
         print("2 seconds done");
@@ -133,27 +134,6 @@ class _MemoryHomeState extends State<MemoryHome> {
                         SizedBox(
                           height: 20,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            // TODO
-                          },
-                          child: Container(
-                            height: 50,
-                            width: 200,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.blue, width: 2),
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: Text(
-                              "Rate Us",
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        ),
                       ],
                     ))
             ],
@@ -194,7 +174,7 @@ class _TileState extends State<Tile> {
               TileModel tileModel = new TileModel();
               print(widget.tileIndex);
               selected = true;
-              Future.delayed(const Duration(seconds: 2), () {
+              Future.delayed(const Duration(seconds: 1), () {
                 tileModel.setImageAssetPath("");
                 myPairs[widget.tileIndex] = tileModel;
                 print(selectedIndex);
@@ -213,7 +193,7 @@ class _TileState extends State<Tile> {
               print(widget.tileIndex);
               print(selectedIndex);
               selected = true;
-              Future.delayed(const Duration(seconds: 2), () {
+              Future.delayed(const Duration(seconds: 1), () {
                 this.widget.parent.setState(() {
                   myPairs[widget.tileIndex].setIsSelected(false);
                   myPairs[selectedIndex].setIsSelected(false);

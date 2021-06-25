@@ -55,7 +55,7 @@ class _RegistrationState extends State<Registration> {
                       SizedBox(height: 80.0),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 90.0),
+                            vertical: 20.0, horizontal: 50.0),
                         child: Form(
                           key: _formKey,
                           child: Column(
@@ -70,7 +70,7 @@ class _RegistrationState extends State<Registration> {
                                   icon: Icon(
                                     Icons.person,
                                     size: 30.0,
-                                    color: Colors.grey.shade900,
+                                    color: Colors.grey.shade800,
                                   ),
                                   hintText: 'Name',
                                   hintStyle: TextStyle(
@@ -80,9 +80,9 @@ class _RegistrationState extends State<Registration> {
                                   ),
                                   border: new OutlineInputBorder(
                                       borderRadius:
-                                          new BorderRadius.circular(30.0)),
+                                          new BorderRadius.circular(10.0)),
                                   filled: true,
-                                  fillColor: Colors.black87,
+                                  fillColor: Colors.grey.shade800,
                                 ),
                                 onChanged: (val) {
                                   setState(() => name = val);
@@ -99,7 +99,7 @@ class _RegistrationState extends State<Registration> {
                                   icon: Icon(
                                     Icons.email,
                                     size: 30.0,
-                                    color: Colors.grey.shade900,
+                                    color: Colors.grey.shade800,
                                   ),
                                   hintText: 'Email',
                                   hintStyle: TextStyle(
@@ -109,9 +109,9 @@ class _RegistrationState extends State<Registration> {
                                   ),
                                   border: new OutlineInputBorder(
                                       borderRadius:
-                                          new BorderRadius.circular(30.0)),
+                                          new BorderRadius.circular(10.0)),
                                   filled: true,
-                                  fillColor: Colors.black87,
+                                  fillColor: Colors.grey.shade800,
                                 ),
                                 onChanged: (val) {
                                   setState(() => email = val);
@@ -129,7 +129,7 @@ class _RegistrationState extends State<Registration> {
                                   icon: Icon(
                                     Icons.phone,
                                     size: 30.0,
-                                    color: Colors.grey.shade900,
+                                    color: Colors.grey.shade800,
                                   ),
                                   hintText: 'Contact',
                                   hintStyle: TextStyle(
@@ -139,9 +139,9 @@ class _RegistrationState extends State<Registration> {
                                   ),
                                   border: new OutlineInputBorder(
                                       borderRadius:
-                                          new BorderRadius.circular(50.0)),
+                                          new BorderRadius.circular(10.0)),
                                   filled: true,
-                                  fillColor: Colors.black87,
+                                  fillColor: Colors.grey.shade800,
                                 ),
                                 onChanged: (val) {
                                   setState(() => phone = val);
@@ -159,7 +159,7 @@ class _RegistrationState extends State<Registration> {
                                   icon: Icon(
                                     Icons.lock,
                                     size: 30.0,
-                                    color: Colors.grey.shade900,
+                                    color: Colors.grey.shade800,
                                   ),
                                   hintText: 'Password',
                                   hintStyle: TextStyle(
@@ -169,9 +169,9 @@ class _RegistrationState extends State<Registration> {
                                   ),
                                   border: new OutlineInputBorder(
                                       borderRadius:
-                                          new BorderRadius.circular(30.0)),
+                                          new BorderRadius.circular(10.0)),
                                   filled: true,
-                                  fillColor: Colors.black87,
+                                  fillColor: Colors.grey.shade800,
                                 ),
                                 onChanged: (val) {
                                   setState(() => password = val);
@@ -189,7 +189,7 @@ class _RegistrationState extends State<Registration> {
                                   icon: Icon(
                                     Icons.lock,
                                     size: 30.0,
-                                    color: Colors.grey.shade900,
+                                    color: Colors.grey.shade800,
                                   ),
                                   hintText: 'Confirm Password',
                                   hintStyle: TextStyle(
@@ -199,9 +199,9 @@ class _RegistrationState extends State<Registration> {
                                   ),
                                   border: new OutlineInputBorder(
                                       borderRadius:
-                                          new BorderRadius.circular(30.0)),
+                                          new BorderRadius.circular(10.0)),
                                   filled: true,
-                                  fillColor: Colors.black87,
+                                  fillColor: Colors.grey.shade800,
                                 ),
                                 onChanged: (val) {
                                   setState(() => conpassword = val);

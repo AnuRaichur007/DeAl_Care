@@ -21,7 +21,7 @@ class _CreateQuizState extends State<CreateQuiz> {
   String quizId;
 
 
-  createQuiz(){
+  createQuiz() async {
 
     quizId = randomAlphaNumeric(16);
     if(_formKey.currentState.validate()){
@@ -31,12 +31,13 @@ class _CreateQuizState extends State<CreateQuiz> {
       });
 
       Map<String, String> quizData = {
+        "quizId":quizId,
         "quizImgUrl" : quizImgUrl,
         "quizTitle" : quizTitle,
         "quizDesc" : quizDesc
       };
 
-      databaseService.addQuizData(quizData, quizId).then((value){
+     await databaseService.addQuizData(quizData, quizId).then((value){
         setState(() {
           isLoading = false;
         });

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:deal_care/Screens/Quiz/views/results.dart';
 import 'package:deal_care/services/database.dart';
 import 'package:flutter/material.dart';
 import '../question_model.dart';
@@ -39,17 +40,15 @@ class _QuizPlayState extends State<QuizPlay> {
       print("init don $total ${widget.quizId} ");
     });
 
-    if(infoStream == null){
-      infoStream = Stream<List<int>>.periodic(
-        Duration(milliseconds: 100), (x){
-          print("this is x $x");
-          return [_correct, _incorrect] ;
+    if (infoStream == null) {
+      infoStream = Stream<List<int>>.periodic(Duration(milliseconds: 100), (x) {
+        print("this is x $x");
+        return [_correct, _incorrect];
       });
     }
 
     super.initState();
   }
-
 
   QuestionModel getQuestionModelFromDatasnapshot(
       DocumentSnapshot questionSnapshot) {
@@ -88,7 +87,10 @@ class _QuizPlayState extends State<QuizPlay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz Play'),
+        title: Text(
+          'Quiz Play',
+          style: TextStyle(color: Colors.teal.shade600,fontWeight: FontWeight.bold,fontSize: 30),
+        ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         brightness: Brightness.light,
@@ -96,10 +98,10 @@ class _QuizPlayState extends State<QuizPlay> {
       ),
       body: isLoading
           ? Container(
-        child: Center(child: CircularProgressIndicator()),
-      )
+              child: Center(child: CircularProgressIndicator()),
+            )
           : SingleChildScrollView(
-            child: Container(
+              child: Container(
                 child: Column(
                   children: [
                     InfoHeader(
@@ -110,8 +112,10 @@ class _QuizPlayState extends State<QuizPlay> {
                     ),
                     questionSnaphot.docs == null
                         ? Container(
-                      child: Center(child: Text("No Data"),),
-                    )
+                            child: Center(
+                              child: Text("No Data"),
+                            ),
+                          )
                         : ListView.builder(
                             itemCount: questionSnaphot.docs.length,
                             shrinkWrap: true,
@@ -126,7 +130,18 @@ class _QuizPlayState extends State<QuizPlay> {
                   ],
                 ),
               ),
-          ),
+            ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal.shade600,
+        onPressed: () {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Results(correct: _correct,incorrect: _incorrect,total: total,notattempted: _notAttempted,)));
+        },
+        child: Icon(
+          Icons.check,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
@@ -144,39 +159,39 @@ class _InfoHeaderState extends State<InfoHeader> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: infoStream,
-      builder: (context, snapshot){
-        return snapshot.hasData ? Container(
-          height: 40,
-          margin: EdgeInsets.only(left: 14),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
-            children: <Widget>[
-              NoOfQuestionTile(
-                text: "Total",
-                number: widget.length,
-              ),
-              NoOfQuestionTile(
-                text: "Correct",
-                number: _correct,
-              ),
-              NoOfQuestionTile(
-                text: "Incorrect",
-                number: _incorrect,
-              ),
-              NoOfQuestionTile(
-                text: "NotAttempted",
-                number: _notAttempted,
-              ),
-            ],
-          ),
-        ) : Container();
-      }
-    );
+        stream: infoStream,
+        builder: (context, snapshot) {
+          return snapshot.hasData
+              ? Container(
+                  height: 40,
+                  margin: EdgeInsets.only(left: 14),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      NoOfQuestionTile(
+                        text: "Total",
+                        number: widget.length,
+                      ),
+                      NoOfQuestionTile(
+                        text: "Correct",
+                        number: _correct,
+                      ),
+                      NoOfQuestionTile(
+                        text: "Incorrect",
+                        number: _incorrect,
+                      ),
+                      NoOfQuestionTile(
+                        text: "NotAttempted",
+                        number: _notAttempted,
+                      ),
+                    ],
+                  ),
+                )
+              : Container();
+        });
   }
 }
-
 
 class QuizPlayTile extends StatefulWidget {
   final QuestionModel questionModel;
@@ -198,9 +213,7 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: 20
-            ),
+            margin: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               "Q${widget.index + 1} ${widget.questionModel.question}",
               style:
@@ -220,7 +233,7 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                     optionSelected = widget.questionModel.option1;
                     widget.questionModel.answered = true;
                     _correct = _correct + 1;
-                    _notAttempted = _notAttempted + 1;
+                    _notAttempted = _notAttempted - 1;
                   });
                 } else {
                   setState(() {
@@ -252,7 +265,7 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                     optionSelected = widget.questionModel.option2;
                     widget.questionModel.answered = true;
                     _correct = _correct + 1;
-                    _notAttempted = _notAttempted + 1;
+                    _notAttempted = _notAttempted - 1;
                   });
                 } else {
                   setState(() {
@@ -284,7 +297,7 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                     optionSelected = widget.questionModel.option3;
                     widget.questionModel.answered = true;
                     _correct = _correct + 1;
-                    _notAttempted = _notAttempted + 1;
+                    _notAttempted = _notAttempted - 1;
                   });
                 } else {
                   setState(() {
@@ -316,7 +329,7 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                     optionSelected = widget.questionModel.option4;
                     widget.questionModel.answered = true;
                     _correct = _correct + 1;
-                    _notAttempted = _notAttempted + 1;
+                    _notAttempted = _notAttempted - 1;
                   });
                 } else {
                   setState(() {

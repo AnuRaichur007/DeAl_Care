@@ -14,7 +14,7 @@ class _OptionTileState extends State<OptionTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Row(
         children: [
           Container(
@@ -38,6 +38,7 @@ class _OptionTileState extends State<OptionTile> {
             ),
             child: Text(
               widget.option,
+              maxLines: 2,
               style: TextStyle(
                 color: widget.optionSelected == widget.description
                     ? Colors.white

@@ -18,7 +18,7 @@ class _AddQuestionState extends State<AddQuestion> {
 
   String question = "", option1 = "", option2 = "", option3 = "", option4 = "";
 
-  uploadQuizData() {
+  uploadQuizData() async {
 
     if (_formKey.currentState.validate()) {
 
@@ -35,7 +35,7 @@ class _AddQuestionState extends State<AddQuestion> {
       };
 
       print("${widget.quizId}");
-      databaseService.addQuestionData(questionMap, widget.quizId).then((value) {
+      await databaseService.addQuestionData(questionMap, widget.quizId).then((value) {
         question = "";
         option1 = "";
         option2 = "";

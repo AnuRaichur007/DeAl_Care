@@ -22,21 +22,25 @@ class _HomeState extends State<Home> {
               return snapshot.data == null
                   ? Container()
                   : ListView.builder(
-                  shrinkWrap: true,
-                  physics: ClampingScrollPhysics(),
-                  itemCount: snapshot.data.docs.length,
-                  itemBuilder: (context, index) {
-                    return QuizTile(
-                      noOfQuestions: snapshot.data.docs.length,
-                      imageUrl:
-                      snapshot.data.docs[index].data()['quizImgUrl'],
-                      title:
-                      snapshot.data.docs[index].data()['quizTitle'],
-                      description:
-                      snapshot.data.docs[index].data()['quizDesc'],
-                      id: snapshot.data.docs[index].data()["id"],
-                    );
-                  });
+                      shrinkWrap: true,
+                      physics: ClampingScrollPhysics(),
+                      itemCount: snapshot.data.docs.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          color: Colors.white,
+                          elevation: 0.0,
+                          margin: EdgeInsets.all(10.0),
+                          child: QuizTile(
+                            noOfQuestions: snapshot.data.docs.length,
+                            imageUrl:
+                                snapshot.data.docs[index].data()['quizImgUrl'],
+                            title: snapshot.data.docs[index].data()['quizTitle'],
+                            description:
+                                snapshot.data.docs[index].data()['quizDesc'],
+                            quizid: snapshot.data.docs[index].data()["quizId"],
+                          ),
+                        );
+                      });
             },
           )
         ],
@@ -48,7 +52,9 @@ class _HomeState extends State<Home> {
   void initState() {
     databaseService.getQuizData().then((value) {
       quizStream = value;
-      setState(() {});
+      setState(() {
+        quizStream=value;
+      });
     });
     super.initState();
   }
@@ -58,7 +64,18 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Quizzler'),
+        toolbarHeight: 80.0,
+        title: Row(
+          children: [
+            SizedBox(
+              width: 90.0,
+            ),
+            Text(
+              'Quizzler',
+              style: TextStyle(color: Colors.teal.shade600, fontSize: 30.0,fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
         brightness: Brightness.light,
         elevation: 0.0,
         backgroundColor: Colors.transparent,
@@ -66,6 +83,7 @@ class _HomeState extends State<Home> {
       ),
       body: quizList(),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal.shade600,
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(
@@ -77,23 +95,22 @@ class _HomeState extends State<Home> {
 }
 
 class QuizTile extends StatelessWidget {
-  final String imageUrl, title, id, description;
+  final String imageUrl, title, quizid, description;
   final int noOfQuestions;
 
   QuizTile(
       {@required this.title,
-        @required this.imageUrl,
-        @required this.description,
-        @required this.id,
-        @required this.noOfQuestions});
+      @required this.imageUrl,
+      @required this.description,
+      @required this.quizid,
+      @required this.noOfQuestions});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => QuizPlay(id)
-        ));
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => QuizPlay(quizid)));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 24),
@@ -120,7 +137,9 @@ class QuizTile extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(height: 4,),
+                      SizedBox(
+                        height: 4,
+                      ),
                       Text(
                         description,
                         style: TextStyle(

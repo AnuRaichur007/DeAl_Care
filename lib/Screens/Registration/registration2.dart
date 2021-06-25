@@ -50,10 +50,10 @@ bool loading = false;
                     ),
                   ),
                 ),
-                SizedBox(height: 110.0),
+                SizedBox(height: 100.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 90.0),
+                      vertical: 20.0, horizontal: 60.0),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -67,7 +67,7 @@ bool loading = false;
                             icon: Icon(
                               Icons.person,
                               size: 30.0,
-                              color: Colors.grey.shade900,
+                              color: Colors.grey.shade800,
                             ),
                             hintText: 'Name',
                             hintStyle: TextStyle(
@@ -76,9 +76,9 @@ bool loading = false;
                               fontSize: 15.0,
                             ),
                             border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                                borderRadius: new BorderRadius.circular(10.0)),
                             filled: true,
-                            fillColor: Colors.black87,
+                            fillColor: Colors.grey.shade800,
                           ),
                           onChanged: (val) {
                             setState(() => name = val);
@@ -94,7 +94,7 @@ bool loading = false;
                             icon: Icon(
                               Icons.email,
                               size: 30.0,
-                              color: Colors.grey.shade900,
+                              color: Colors.grey.shade800,
                             ),
                             hintText: 'Email',
                             hintStyle: TextStyle(
@@ -103,9 +103,9 @@ bool loading = false;
                               fontSize: 15.0,
                             ),
                             border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                                borderRadius: new BorderRadius.circular(10.0)),
                             filled: true,
-                            fillColor: Colors.black87,
+                            fillColor: Colors.grey.shade800,
                           ),
                           onChanged: (val) {
                             setState(() => email = val);
@@ -122,7 +122,7 @@ bool loading = false;
                             icon: Icon(
                               Icons.lock,
                               size: 30.0,
-                              color: Colors.grey.shade900,
+                              color: Colors.grey.shade800,
                             ),
                             hintText: 'Password',
                             hintStyle: TextStyle(
@@ -131,9 +131,9 @@ bool loading = false;
                               fontSize: 15.0,
                             ),
                             border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                                borderRadius: new BorderRadius.circular(10.0)),
                             filled: true,
-                            fillColor: Colors.black87,
+                            fillColor: Colors.grey.shade800,
                           ),
                           onChanged: (val) {
                             setState(() => password = val);
@@ -149,7 +149,7 @@ bool loading = false;
                             icon: Icon(
                               Icons.lock,
                               size: 30.0,
-                              color: Colors.grey.shade900,
+                              color: Colors.grey.shade800,
                             ),
                             hintText: 'Confirm Password',
                             hintStyle: TextStyle(
@@ -158,9 +158,9 @@ bool loading = false;
                               fontSize: 15.0,
                             ),
                             border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
+                                borderRadius: new BorderRadius.circular(10.0)),
                             filled: true,
-                            fillColor: Colors.black87,
+                            fillColor: Colors.grey.shade800,
                           ),
                           onChanged: (val) {
                             setState(() => conpassword = val);

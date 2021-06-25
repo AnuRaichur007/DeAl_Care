@@ -41,7 +41,7 @@ class _UserTypeState extends State<UserType> {
                       ),
                     ),
                     SizedBox(
-                      height: 150.0,
+                      height: 160.0,
                     ),
                     TextButton(
                       onPressed: () {
@@ -59,7 +59,9 @@ class _UserTypeState extends State<UserType> {
                     Text(
                       'Caregiver',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        color: Colors.grey.shade700,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(
@@ -68,7 +70,9 @@ class _UserTypeState extends State<UserType> {
                     Text(
                       'Or',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey.shade700
                       ),
                     ),
                     SizedBox(
@@ -90,7 +94,9 @@ class _UserTypeState extends State<UserType> {
                     Text(
                       'Patient',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey.shade700,
                       ),
                     ),
                   ],

@@ -14,8 +14,6 @@ class DatabaseService {
       .collection('Patients');
   final CollectionReference feedbackCollections = FirebaseFirestore.instance
       .collection('Feedback');
-  final CollectionReference schedularCollections = FirebaseFirestore.instance
-      .collection('Schedular');
 
 // Division between patient users and caregiver users
   Future updatePatientData(String name, String email, String password) async {
@@ -36,16 +34,16 @@ class DatabaseService {
 
 
 //Collection created for storing Quiz questions!!
-  Future<void> addData(userData) async {
-    FirebaseFirestore.instance.collection("users").add(userData).catchError((
-        e) {
-      print(e);
-    });
-  }
+//   Future<void> addData(userData) async {
+//     FirebaseFirestore.instance.collection("users").add(userData).catchError((
+//         e) {
+//       print(e);
+//     });
+//   }
 
-  getData() async {
-    return await FirebaseFirestore.instance.collection("users").snapshots();
-  }
+  // getData() async {
+  //   return await FirebaseFirestore.instance.collection("users").snapshots();
+  // }
 
   Future<void> addQuizData(Map quizData, String quizId) async {
     await FirebaseFirestore.instance
@@ -57,12 +55,12 @@ class DatabaseService {
     });
   }
 
-  Future<void> addQuestionData(quizData, String quizId) async {
+  Future<void> addQuestionData(questionData, String quizId) async {
     await FirebaseFirestore.instance
         .collection("Quiz")
         .doc(quizId)
         .collection("QNA")
-        .add(quizData)
+        .add(questionData)
         .catchError((e) {
       print(e);
     });
@@ -89,10 +87,5 @@ class DatabaseService {
       'Content': content
     });
   }
+
 }
-//Collection for TO-DO created by users!!
-
-//Sorting priorities! Divide work for patients and cargiver separately
-
-
-// location tracking and sending to caregiver!
